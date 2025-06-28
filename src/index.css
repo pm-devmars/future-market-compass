@@ -1,0 +1,260 @@
+/* --- FIXED: AG Grid @import statements MUST come first --- */
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+
+
+/* Ensure these Tailwind directives are at the top, immediately after @imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------- */
+/* Global Body Styles - Replicating Dash's `body` CSS */
+/* ------------------------------------------- */
+body {
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  color: #e8eaed; /* Your primary light text color */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Ensures the gradient covers the entire viewport height */
+  overflow-x: hidden; /* Prevent horizontal scrollbar if content overflows */
+}
+
+/* ------------------------------------------- */
+/* Custom Styles for Components - Replicating Dash's `.card` etc. */
+/* These will be applied as classNames in your JSX */
+/* ------------------------------------------- */
+
+.custom-container {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  margin: 1rem; /* Adjust margin if needed, Tailwind's `m-4` for example */
+  padding: 1.5rem; /* Tailwind's `p-6` is similar */
+}
+
+.custom-card {
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+  border: 1px solid #4a5568;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%; /* Ensure cards fill column height */
+  display: flex;
+  flex-direction: column;
+  color: #e8eaed; /* Inherit text color */
+}
+
+.custom-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.custom-card-header {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  border-bottom: 1px solid #4a5568;
+  color: #e8eaed;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 1rem 1.5rem; /* Adjust padding as needed */
+  border-top-left-radius: 12px; /* Match card border-radius */
+  border-top-right-radius: 12px; /* Match card border-radius */
+}
+
+.custom-card-body {
+    padding: 1.5rem; /* Equivalent to dbc.CardBody padding */
+    flex-grow: 1; /* Allow body to take available space in flex column */
+    /* NO `overflow` or `max-height` here, those will be on the specific table wrapper for sticky headers */
+}
+
+/* ------------------------------------------- */
+/* Form Control Styles - For Inputs/Dropdowns */
+/* ------------------------------------------- */
+.custom-form-control {
+    background-color: #2d3748;
+    border: 1px solid #4a5568;
+    color: #e8eaed;
+    border-radius: 8px;
+    padding: 0.5rem 1rem; /* Adjust padding */
+    width: 100%; /* Ensure it takes full width of its container */
+}
+
+.custom-form-control:focus {
+    border-color: #4299e1;
+    box-shadow: 0 0 0 0.2rem rgba(66, 153, 225, 0.25);
+    outline: none; /* Remove default outline */
+}
+
+/* ------------------------------------------- */
+/* Button Styles */
+/* ------------------------------------------- */
+.custom-btn-success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  color: white; /* Ensure text is white */
+  padding: 0.5rem 1.25rem; /* Adjust padding */
+}
+
+.custom-btn-success:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+  cursor: pointer;
+}
+
+.custom-btn-info {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%); /* Example info color */
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  color: white;
+  padding: 0.5rem 1.25rem;
+}
+
+.custom-btn-info:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.4);
+  cursor: pointer;
+}
+
+.custom-btn-primary {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  color: white;
+  padding: 0.5rem 1.25rem;
+}
+.custom-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.4);
+  cursor: pointer;
+}
+
+.custom-btn-secondary {
+  background-color: #4a5568; /* A darker gray for secondary */
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  color: #e8eaed;
+  padding: 0.5rem 1.25rem;
+}
+.custom-btn-secondary:hover {
+  background-color: #6a7488;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+
+/* ------------------------------------------- */
+/* AG-Grid Specific Styling (Replicating dash_ag_grid theme) */
+/* ------------------------------------------- */
+
+/* AG-Grid Theme Overrides (ag-theme-alpine-dark equivalent) */
+.ag-theme-alpine-dark {
+  /* AG Grid variables */
+  --ag-background-color: #1e1e2e;
+  --ag-header-background-color: #2d3748;
+  --ag-odd-row-background-color: #252535;
+  --ag-row-background-color: #1e1e2e;
+  --ag-row-border-color: #2d3748; /* Border between rows */
+  --ag-cell-horizontal-border-color: #4a5568; /* For cell borders if active */
+  --ag-border-color: #4a5568; /* Main grid border */
+  --ag-foreground-color: #e8eaed; /* Default text color */
+  --ag-header-foreground-color: #ffffff; /* Header text color */
+  --ag-selected-row-background-color: rgba(66, 153, 225, 0.3);
+  --ag-range-selection-background-color: rgba(66, 153, 225, 0.2);
+  --ag-secondary-foreground-color: #a0aec0; /* For secondary text like sort indicators */
+
+  /* Custom AG Grid element styling */
+  border-radius: 8px;
+  overflow: hidden; /* Ensures border-radius applies to grid content */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Apply shadow to the grid itself */
+}
+
+/* Header specific styles */
+.ag-theme-alpine-dark .ag-header-cell {
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%); /* Header background */
+  border-bottom: 1px solid #4a5568; /* Bottom border for header */
+}
+.ag-theme-alpine-dark .ag-header-cell:hover {
+  background-color: rgba(66, 153, 225, 0.3) !important; /* Lighter hover for header cells */
+}
+
+/* Row specific styles */
+.ag-theme-alpine-dark .ag-row {
+  transition: all 0.2s ease;
+}
+.ag-theme-alpine-dark .ag-row:hover {
+  background-color: rgba(66, 153, 225, 0.2) !important; /* Lighter hover for data rows */
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+/* Cell specific styles (for selection, text, etc.) */
+.ag-theme-alpine-dark .ag-cell {
+  /* Allow text selection */
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+  cursor: text;
+}
+.ag-theme-alpine-dark .ag-cell::selection {
+  background-color: rgba(66, 153, 225, 0.5);
+  color: white;
+}
+
+/* Custom cell classes for profit/loss colors - apply these via `cellClassRules` in columnDefs */
+.ag-cell-positive {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.4)) !important;
+  border-left: 3px solid #10b981 !important;
+  color: #d1fae5 !important;
+  font-weight: 600;
+}
+.ag-cell-negative {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.4)) !important;
+  border-left: 3px solid #ef4444 !important;
+  color: #fecaca !important;
+  font-weight: 600;
+}
+.ag-cell-return-positive {
+  color: #34d399 !important;
+  font-weight: bold;
+  text-shadow: 0 0 4px rgba(52, 211, 153, 0.3);
+}
+.ag-cell-return-negative {
+  color: #fca5a5 !important;
+  font-weight: bold;
+  text-shadow: 0 0 4px rgba(252, 165, 165, 0.3);
+}
+
+/* Image in AG Grid cell (if rendered using a cellRenderer) */
+.ag-cell-image {
+  height: 32px;
+  width: 32px;
+  object-fit: cover;
+  border: 2px solid #4a5568;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Scrollbar styling for AG Grid */
+.ag-theme-alpine-dark ::-webkit-scrollbar { width: 8px; height: 8px; }
+.ag-theme-alpine-dark ::-webkit-scrollbar-track { background: #2d3748; border-radius: 4px; }
+.ag-theme-alpine-dark ::-webkit-scrollbar-thumb { background: #4a5568; border-radius: 4px; }
+.ag-theme-alpine-dark ::-webkit-scrollbar-thumb:hover { background: #4299e1; }
