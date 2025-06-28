@@ -56,7 +56,7 @@ const MoversTable: React.FC<MoversTableProps> = ({ moversData, performanceMode, 
           ...commonDefs,
           { 
             field: 'asset_price_pct_change_period', 
-            headerName: 'Asset Price % Change', // Direct price percent change
+            headerName: 'Asset Price % Change', 
             type: 'numericColumn', 
             valueFormatter: (params: ValueFormatterParams) => `${params.value?.toFixed(2)}%`,
             cellClassRules: { 'ag-cell-return-positive': 'x > 0', 'ag-cell-return-negative': 'x < 0' },
@@ -85,7 +85,7 @@ const MoversTable: React.FC<MoversTableProps> = ({ moversData, performanceMode, 
           ...commonDefs,
           { 
             field: 'projected_pnl_from_pct_change_period', 
-            headerName: 'Projected PnL (Period)', // Projected PnL based on asset % change
+            headerName: 'Projected PnL (Period)', 
             type: 'numericColumn', 
             valueFormatter: (params: ValueFormatterParams) => `$${params.value?.toFixed(2)}`,
             cellClassRules: { 'ag-cell-positive': 'x > 0', 'ag-cell-negative': 'x < 0' },
@@ -161,8 +161,7 @@ const MoversTable: React.FC<MoversTableProps> = ({ moversData, performanceMode, 
     rowHeight: 44,
     headerHeight: 40, // Slightly smaller header for movers
     animateRows: true,
-    floatingFilter: true, // <<< ADDED: Enable always-visible filters in the header
-    // No row selection or clipboard for this table by default
+    floatingFilter: true, // Enable always-visible filters in the header
   }), []);
 
 

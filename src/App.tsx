@@ -15,7 +15,7 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   // State for the wallet address input field (now expects comma-separated)
-  const [walletAddressInput, setWalletAddressInput] = useState<string>('0xbe89905ca9a689f5129621b62fcf71'); // <<< IMPORTANT: Replace with a real default wallet address (or comma-separated list)
+  const [walletAddressInput, setWalletAddressInput] = useState<string>('0xbe89905ca9a689f5129621b62fcf715b5a45b88c'); // <<< IMPORTANT: Replace with a real default wallet address (or comma-separated list)
   // State for the hours selector input
   const [hourSelector, setHourSelector] = useState<string>('24'); // Default to 24 hours
   
